@@ -11,27 +11,39 @@
     "url": "git+https://github.com/acinader/link-painter.git"
   },
   "author": {
-		"name": "Arthur Cinader"
+    "name": "Arthur Cinader"
   },
   "files": [
     "index.js",
     "index.d.ts"
   ],
-	"engines": {
-		"node": ">=8"
+  "engines": {
+    "node": ">=8"
   },
   "keywords": [
-		"querystring",
-		"utm_campaign",
-		"analytics",
-		"uri",
-		"url",
-		"anchor",
-		"html"
-	],
+    "querystring",
+    "utm_campaign",
+    "analytics",
+    "uri",
+    "url",
+    "anchor",
+    "html"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/acinader/link-painter/issues"
   },
-  "homepage": "https://github.com/acinader/link-painter#readme"
+  "homepage": "https://github.com/acinader/link-painter#readme",
+  "devDependencies": {
+    "ava": "^2.0.0",
+    "get-stream": "^5.1.0",
+    "tsd": "^0.7.3",
+    "xo": "^0.24.0"
+  },
+  "dependencies": {
+    "is-relative-url": "^3.0.0",
+    "lodash": "^4.17.11",
+    "parse5-html-rewriting-stream": "^5.1.0",
+    "url-pattern": "^1.0.3"
+  }
 }
