@@ -1,5 +1,5 @@
-# link-painter
-Add Query Parameters to Links in HTML [![Build Status](https://travis-ci.org/acinader/link-painter.svg?branch=master)](https://travis-ci.org/acinader/link-painter)
+# link-painter [![Build Status](https://travis-ci.org/acinader/link-painter.svg?branch=master)](https://travis-ci.org/acinader/link-painter)
+Add Query Parameters to Links in HTML
 
 ### install
 `npm install link-painter`
