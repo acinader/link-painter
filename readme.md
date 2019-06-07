@@ -6,14 +6,14 @@ Add Query Parameters to Links in HTML
 
 ### example
 ```js
-	const queryParams = {
-		utm_source: 'newsletter',
-		utm_medium: 'link',
-		utm_campaign: 'link-painter'
-	};
+const queryParams = {
+	utm_source: 'newsletter',
+	utm_medium: 'link',
+	utm_campaign: 'link-painter'
+};
 
-	const html = await fs.createReadStream('./sample.html', 'utf-8');
-	const result = await getStream(html.pipe(new LinkPainter('my.example.com', queryParams)));
+const html = await fs.createReadStream('./sample.html', 'utf-8');
+const result = await getStream(html.pipe(new LinkPainter('my.example.com', queryParams)));
 ```
 
 yields:
