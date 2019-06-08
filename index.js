@@ -2,12 +2,17 @@
 const RewritingStream = require('parse5-html-rewriting-stream');
 const UrlPattern = require('url-pattern');
 const isRelativeUrl = require('is-relative-url');
-const isEqual = require('lodash/fp/isEqual');
+
+const isEqual = (a, b) =>
+	b &&
+	a.tld === b.tld &&
+	a.subdomain === b.subdomain &&
+	a.domain === b.domain;
 
 class LinkPainter extends RewritingStream {
 	constructor(domain, queryParams, options) {
 		super(options);
-		const pattern = new UrlPattern('(http(s)\\://)(:subdomain.):domain.:tld(\\::port)(/*)');
+		const pattern = new UrlPattern('(http(s)\\://)(:subdomain.):domain.:tld((/)(?)*)');
 		const toMatch = pattern.match(domain);
 
 		this.on('startTag', startTag => {
