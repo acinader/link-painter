@@ -46,6 +46,10 @@ test('Url with query string but no trailing /', async t => {
 	t.is(result, expected);
 });
 
-/*
-<a href="https://my.example.com?take=3">foo</a>
-*/
+test('Survive bad input', async t => {
+	const html = await fs.createReadStream('./sample2.html', 'utf-8');
+	const result = await getStream(html.pipe(new LinkPainter('example.com', queryParams)));
+
+	t.true(result.includes('"https://example.com/?page=1&amp;utm_source=newsletter&amp;utm_medium=link&amp;utm_campaign=link-painter"'));
+	t.true(result.includes('"https://google.com"'));
+});

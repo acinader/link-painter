@@ -22,9 +22,11 @@ class LinkPainter extends RewritingStream {
 					href &&
 					(isRelativeUrl(href.value) || isEqual(toMatch, pattern.match(href.value)))
 				) {
-					const url = new URL(href.value);
-					Object.keys(queryParams).forEach(k => url.searchParams.set(k, queryParams[k]));
-					href.value = url.toString();
+					try {
+						const url = new URL(href.value);
+						Object.keys(queryParams).forEach(k => url.searchParams.set(k, queryParams[k]));
+						href.value = url.toString();
+					} catch (error) { }
 				}
 			}
 
