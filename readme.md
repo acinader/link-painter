@@ -12,7 +12,7 @@ const queryParams = {
 	utm_campaign: 'link-painter'
 };
 
-const html = await fs.createReadStream('./sample.html', 'utf-8');
+const html = fs.createReadStream('./sample.html', 'utf-8');
 const result = await getStream(html.pipe(new LinkPainter('my.example.com', queryParams)));
 ```
 
