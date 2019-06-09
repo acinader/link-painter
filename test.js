@@ -15,7 +15,7 @@ const queryParams = {
 };
 
 test('Paint links', async t => {
-	const html = await fs.createReadStream('./sample.html', 'utf-8');
+	const html = fs.createReadStream('./sample.html', 'utf-8');
 	const result = await getStream(html.pipe(new LinkPainter('my.example.com', queryParams)));
 
 	t.true(result.includes('"https://my.example.com/?utm_source=newsletter&amp;utm_medium=link&amp;utm_campaign=link-painter"'));
@@ -47,7 +47,7 @@ test('Url with query string but no trailing /', async t => {
 });
 
 test('Survive bad input', async t => {
-	const html = await fs.createReadStream('./sample2.html', 'utf-8');
+	const html = fs.createReadStream('./sample2.html', 'utf-8');
 	const result = await getStream(html.pipe(new LinkPainter('example.com', queryParams)));
 
 	t.true(result.includes('"https://example.com/?page=1&amp;utm_source=newsletter&amp;utm_medium=link&amp;utm_campaign=link-painter"'));
